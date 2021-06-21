@@ -8,4 +8,5 @@ views = Blueprint('views', __name__)
 @views.route('/')
 @login_required  # with this decorator we cannot access home page without user logged in
 def home():
-    return render_template("home.html")
+    # reference a current user in base template and check if it's authenticated
+    return render_template("home.html", user=current_user)
