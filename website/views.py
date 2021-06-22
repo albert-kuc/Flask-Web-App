@@ -25,10 +25,11 @@ def home():
     # reference a current user in base template and check if it's authenticated
     return render_template("home.html", user=current_user)
 
+
 @views.route('/delete-note', methods=['POST'])
 def delete_note():
     """
-    Take in data from post request and load as json object, access note_id attribute, look up Note with that id,
+    Take in note from post request and load as json object, access note_id attribute, look up for Note with that id,
     if Note exists and current user owns this Note, delete it. Return an empty response.
     """
     note = json.loads(request.data)
